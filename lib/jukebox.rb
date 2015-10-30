@@ -1,10 +1,12 @@
-require 'pry'
 
 class Jukebox
-  attr_accessor :songs, :input, :call
+  attr_accessor :songs, :input, :call, :commands
+
+  Commands = Struct.new(:help, :list, :play, :exit)
 
   def initialize(songs = [])
     @songs = songs
+    @commands = Commands.new
   end
 
   def help
