@@ -1,3 +1,4 @@
+require 'pry'
 describe 'Jukebox' do
   let(:songs) {
     [
@@ -114,7 +115,8 @@ describe 'Jukebox' do
     it 'accepts a song name and plays that song' do
       jukebox.stub(:gets).and_return("Phoenix - 1901")
       play_output = capture_stdout { jukebox.play }
-      expect(play_output).to match("Enter a song number or enter the artist and song title, as shown in the list above\nNow playing Phoenix - 1901\n")
+      
+      expect(play_output).to match("Enter a song number or enter the artist and song title, as shown in the list above\nNow playing: Phoenix - 1901\n")
     end
 
     it 'accepts a song number and plays that song' do 
